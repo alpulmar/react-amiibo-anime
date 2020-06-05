@@ -14,6 +14,7 @@ export function Menu () {
             <LinkTo className="c-menu__link"><Link to="/">Home</Link></LinkTo>
             <LinkTo className="c-menu__link"><Link to="/amiibos">Amiibos</Link></LinkTo>
             <LinkTo className="c-menu__link"><Link to="/gameseries">Game Series</Link></LinkTo>
+            <LinkTo className="c-menu__link"><Link to="/animes">Animes</Link></LinkTo>
             <LinkTo className="c-menu__link"><Link to="/contact">Contact</Link></LinkTo>
         </nav>
     );

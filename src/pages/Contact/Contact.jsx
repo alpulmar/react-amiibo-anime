@@ -1,19 +1,17 @@
-import React, { useContext } from 'react';
+ 
+import React, { useContext, useEffect } from 'react';
 import { useForm } from "react-hook-form";
 import { AmiibosContext } from "../../shared/contexts/AmiibosContext";
 import { LanguageContext } from "../../shared/contexts/LanguageContext";
 
 export function Contact () {
+    
     const [amiibos, setAmiibos] = useContext(AmiibosContext);
     const language = useContext(LanguageContext);
 
     const { register, handleSubmit, watch, errors } = useForm();
 
-
     const onSubmit = data => console.log(data);
-
-
-    console.log(watch("example")); // watch input value by passing the name of it
 
     return (
         <div className="d-flex justify-content-center">
@@ -21,7 +19,8 @@ export function Contact () {
                 <p>Actual Language: {language}</p>
                 <label htmlFor="name">
                     <span className="b-text-label">Name</span>
-                    <input className="b-input" name="name" id="name" defaultValue="Abel Cabeza Román" ref={register({ required: true })}/>
+                    <input className="b-input" name="name" id="name" defaultValue="Abel Cabeza Román"
+                           ref={register({ required: true })}/>
                     {errors.name && <span>This field is required</span>}
                 </label>
 
@@ -35,7 +34,8 @@ export function Contact () {
 
                 <label htmlFor="favoriteAmiibo">
                     <span className="b-text-label">Favorite amiibo</span>
-                    <select className="b-input" name="favoriteAmiibo" id="favoriteAmiibo" ref={register({ required: true })}>
+                    <select className="b-input" name="favoriteAmiibo" id="favoriteAmiibo"
+                            ref={register({ required: true })}>
                         {amiibos.map(amiibo =>
                             <option value={amiibo.name}>{amiibo.name}</option>
                         )}
@@ -45,7 +45,8 @@ export function Contact () {
 
                 <label htmlFor="message">
                     <span className="b-text-label">Message</span>
-                    <textarea className="b-input" name="message" id="message" cols="30" rows="10" ref={register({ required: true })}/>
+                    <textarea className="b-input" name="message" id="message" cols="30" rows="10"
+                              ref={register({ required: true })}/>
                     {errors.message && <span>This field is required</span>}
                 </label>
 
@@ -55,4 +56,3 @@ export function Contact () {
         </div>
     );
 }
-

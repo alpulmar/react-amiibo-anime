@@ -14,9 +14,12 @@ import { darkTheme, lightTheme } from "./shared/styles/themes";
 import ToggleTheme from "./shared/components/ToogleTheme/ToogleTheme";
 import { useDarkMode } from "./shared/hooks/useDarkMode";
 import { AmiiboDetail } from "./pages/Amiibos/AmiiboDetail/AmiiboDetail";
+import { Animes } from "./pages/Animes/Animes";
+import { AnimesContext } from "./shared/contexts/AnimesContext";
 
 function App () {
     const [amiibos, setAmiibos] = useState([]);
+    const [animes, setAnimes] = useState([]);
     const [language, setLanguage] = useState('es');
 
     /* Theme
@@ -54,6 +57,13 @@ function App () {
                                 </Route>
                             </Switch>
                         </AmiibosContext.Provider>
+                        <AnimesContext.Provider value={[animes, setAnimes]}>
+                            <Switch>
+                                <Route path="/animes">
+                                    <Animes/>
+                                </Route>
+                            </Switch>
+                        </AnimesContext.Provider>
                     </div>
                 </ThemeProvider>
             </LanguageContext.Provider>
